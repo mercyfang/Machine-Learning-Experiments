@@ -18,9 +18,9 @@ for iter = 1:num_iters
     %
     
     % gradient_theta1 (J) = 1 / m * sum_{1 to m} (h_theta(x^i) - y^i)
-    temp1 = theta(1) - alpha / m * sum((theta * X')' - y);
+    temp1 = theta(1) - alpha / m * ((X * theta - y)' * X(:, 1));
     % gradient_theta1 (J) = 1 / m * sum_{1 to m} (h_theta(x^i) - y^i)*x^i
-    temp2 = theta(2) - alpha / m * sum(((theta * X')' - y) * X(:, 2));
+    temp2 = theta(2) - alpha / m * ((X * theta - y)' * X(:, 2));
     % Updates theta simutaneously.
     theta(1) = temp1;
     theta(2) = temp2;

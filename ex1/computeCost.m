@@ -14,7 +14,7 @@ J = 0;
 %               You should set J to the cost.
 for i = 1:m
     % hypothesis h_theta(x) = theta_0 + theta_1 * x
-    J = J + (X(i) * theta - y(i))^2;
+    J = J + (X(i, :) * theta - y(i))^2;
 end
 
 J = J / (2 * m);
