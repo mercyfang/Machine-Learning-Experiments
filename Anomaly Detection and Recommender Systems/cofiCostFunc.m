@@ -40,14 +40,14 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
+J = 1 / 2 * sum(sum(R .* (X * Theta' - Y) .* (X * Theta' - Y)));
+J = J + lambda / 2 * sum(sum(Theta .* Theta)) + lambda / 2 * sum(sum(X .* X));  % Regularization 
 
+X_grad = (R .* (X * Theta' - Y)) * Theta;
+X_grad =  X_grad + lambda * X;  % Regularization
 
-
-
-
-
-
-
+Theta_grad = (R .* (X * Theta' - Y))' * X;
+Theta_grad = Theta_grad + lambda * Theta;  % Regularization
 
 
 
